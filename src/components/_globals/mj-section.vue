@@ -43,12 +43,14 @@
 
 <script>
 export default {
-  props:['background-url', 'full-width', 'width'],
-  data: function(){
+  props:['background-url', 'full-width', 'width','attrs'],
+  data(){
     return {
-      divStyle: {
+        // https://images.unsplash.com/photo-1487564149407-9fb3522e2ceb?dpr=1&auto=compress,format&fit=crop&w=600&h=200&q=80&cs=tinysrgb&crop=
+      divStyle: this.attrs &&  this.attrs.style  ?  this.attrs.style  : {
+
         margin: '0px auto',
-        maxWidth: this.fullWidth ? '' : this.width ? this.width : '600px',
+        maxWidth: this.fullWidth ? '' : this.width ? this.width : '100%',
         background:  `url(${this.backgroundUrl}) top center / auto repeat`
       },
       tableStyle: {
